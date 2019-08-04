@@ -2,7 +2,7 @@ package com.barriaza.springboot.app.productos.service;
 
 import java.util.List;
 
-import com.barriaza.springboot.app.productos.models.entity.Producto;
+import com.barriaza.springboot.app.commons.models.entity.Producto;
 
 /**
  * Created by bjarriaza.g.07@gmail.com

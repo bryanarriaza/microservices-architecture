@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import com.barriaza.springboot.app.productos.models.entity.Producto;
+import com.barriaza.springboot.app.commons.models.entity.Producto;
 import com.barriaza.springboot.app.productos.service.IProductoService;
 
 /**

@@ -1,7 +1,7 @@
 package com.barriaza.springboot.app.item.controllers;
 
+import com.barriaza.springboot.app.commons.models.entity.Producto;
 import com.barriaza.springboot.app.item.models.Item;
-import com.barriaza.springboot.app.item.models.Producto;
 import com.barriaza.springboot.app.item.services.ItemService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;

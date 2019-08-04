@@ -1,7 +1,7 @@
 package com.barriaza.springboot.app.item.services;
 
 import com.barriaza.springboot.app.item.models.Item;
-import com.barriaza.springboot.app.item.models.Producto;
+import com.barriaza.springboot.app.commons.models.entity.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;

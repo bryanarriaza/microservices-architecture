@@ -1,5 +1,7 @@
 package com.barriaza.springboot.app.item.models;
 
+import com.barriaza.springboot.app.commons.models.entity.Producto;
+
 /**
  * Created by bjarriaza.g.07@gmail.com
  * User: Bryan Arriaza

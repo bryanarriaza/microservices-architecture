@@ -1,6 +1,6 @@
 package com.barriaza.springboot.app.productos.repository;
 
-import com.barriaza.springboot.app.productos.models.entity.Producto;
+import com.barriaza.springboot.app.commons.models.entity.Producto;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
