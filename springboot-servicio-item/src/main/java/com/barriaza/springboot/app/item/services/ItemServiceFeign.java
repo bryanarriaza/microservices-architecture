@@ -1,6 +1,7 @@
 package com.barriaza.springboot.app.item.services;
 
 import com.barriaza.springboot.app.item.models.Item;
+import com.barriaza.springboot.app.item.models.Producto;
 import com.barriaza.springboot.app.item.rest.ProductoClienteRest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,21 @@ public class ItemServiceFeign implements ItemService {
     @Override
     public Item findById(Long id, Integer cantidad) {
         return new Item(productoClienteFeign.detalle(id), cantidad);
+    }
+
+    @Override
+    public Producto save(Producto producto) {
+        return null;
+    }
+
+    @Override
+    public Producto update(Producto producto, Long id) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
     }
 
 }

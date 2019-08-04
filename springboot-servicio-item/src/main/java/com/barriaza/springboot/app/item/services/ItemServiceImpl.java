@@ -3,6 +3,9 @@ package com.barriaza.springboot.app.item.services;
 import com.barriaza.springboot.app.item.models.Item;
 import com.barriaza.springboot.app.item.models.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -42,6 +45,30 @@ public class ItemServiceImpl implements ItemService {
         pathVariables.put("id", id.toString());
         Producto producto = clientRestTemplate.getForObject("http://servicio-productos/ver/{id}", Producto.class, pathVariables);
         return new Item(producto, cantidad);
+    }
+
+    @Override
+    public Producto save(Producto producto) {
+        HttpEntity<Producto> body = new HttpEntity<Producto>(producto);
+        ResponseEntity<Producto> response = clientRestTemplate.exchange("http://servicio-productos", HttpMethod.POST, body, Producto.class);
+        Producto productoResponse = response.getBody();
+        return productoResponse;
+    }
+
+    @Override
+    public Producto update(Producto producto, Long id) {
+        Map<String, String> pathVariables = new HashMap<String, String>();
+        pathVariables.put("id", id.toString());
+        HttpEntity<Producto> body = new HttpEntity<Producto>(producto);
+        ResponseEntity<Producto> response = clientRestTemplate.exchange("http://servicio-productos/{id}", HttpMethod.PUT, body, Producto.class, pathVariables);
+        return response.getBody();
+    }
+
+    @Override
+    public void delete(Long id) {
+        Map<String, String> pathVariables = new HashMap<String, String>();
+        pathVariables.put("id", id.toString());
+        clientRestTemplate.delete("http://servicio-productos/{id}", pathVariables);
     }
 
 }
