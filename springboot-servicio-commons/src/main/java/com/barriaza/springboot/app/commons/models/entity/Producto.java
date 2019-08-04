@@ -1,20 +1,34 @@
-package com.barriaza.springboot.app.item.models;
+package com.barriaza.springboot.app.commons.models.entity;
 
-/**
- * Created by barriaza@is4tech.com
- * User: Bryan Arriaza
- * Date: 2019-07-21
- * Time: 16:56
- */
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Producto {
+/**
+ * Created by bjarriaza.g.07@gmail.com
+ * User: Bryan Arriaza
+ * Date: 2019-08-03
+ * Time: 22:15
+ */
 
+@Entity
+@Table(name = "productos")
+public class Producto implements Serializable {
+
+    private static final long serialVersionUID = -1294095330371437704L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nombre;
     private Double precio;
+
+    @Column(name = "create_at")
+    @Temporal(TemporalType.DATE)
     private Date createAt;
+
+    @Transient
     private Integer port;
 
     public Long getId() {
@@ -58,3 +72,4 @@ public class Producto {
     }
 
 }
+
