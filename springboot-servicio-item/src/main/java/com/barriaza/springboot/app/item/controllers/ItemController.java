@@ -4,13 +4,22 @@ import com.barriaza.springboot.app.item.models.Item;
 import com.barriaza.springboot.app.item.models.Producto;
 import com.barriaza.springboot.app.item.services.ItemService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by barriaza@is4tech.com
@@ -19,12 +28,21 @@ import java.util.List;
  * Time: 18:42
  */
 
+@RefreshScope
 @RestController
 public class ItemController {
+
+    private static Logger log = LoggerFactory.getLogger(ItemController.class);
+
+    @Autowired
+    private Environment environment;
 
     @Autowired
     @Qualifier("serviceProductoFeign")
     private ItemService itemService;
+
+    @Value("${configuracion.texto}")
+    private String confText;
 
     @GetMapping("/listar")
     public List<Item> listar() {
@@ -46,6 +64,19 @@ public class ItemController {
         producto.setPrecio(500.00);
         item.setProducto(producto);
         return item;
+    }
+
+    @GetMapping("/get-config")
+    public ResponseEntity<?> getConfiguration(@Value("${server.port}") String confPort) {
+        Map<String, String> json = new HashMap<>();
+        log.info("Getting texto: ", confText);
+        json.put("text", confText);
+        json.put("port", confPort);
+        if (environment.getActiveProfiles().length > 0 && environment.getActiveProfiles()[0].equals("dev")) {
+            json.put("autor.nombre", environment.getProperty("configuracion.autor.nombre"));
+            json.put("autor.email", environment.getProperty("configuracion.autor.email"));
+        }
+        return new ResponseEntity<Map<String, String>>(json, HttpStatus.OK);
     }
 
 }

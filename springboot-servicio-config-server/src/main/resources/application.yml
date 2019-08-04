@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/bryanarriaza/microservices-architecture/tree/master/config
+          uri: "/home/bryanarriaza/Downloads/config"
 server:
   port: 8888
 
