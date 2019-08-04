@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Created by barriaza@is4tech.com
+ * Created by bjarriaza.g.07@gmail.com
  * User: Bryan Arriaza
  * Date: 2019-07-21
  * Time: 19:21

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 /**
- * Created by barriaza@is4tech.com
+ * Created by bjarriaza.g.07@gmail.com
  * User: Bryan Arriaza
  * Date: 2019-07-21
  * Time: 19:19

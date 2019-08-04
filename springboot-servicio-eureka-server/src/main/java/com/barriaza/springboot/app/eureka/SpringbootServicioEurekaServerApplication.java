@@ -1,4 +1,4 @@
-    package com.barriaza.springboot.app.eureka;
+package com.barriaza.springboot.app.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
