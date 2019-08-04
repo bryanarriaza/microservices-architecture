@@ -2,8 +2,7 @@ package com.barriaza.springboot.app.item.rest;
 
 import com.barriaza.springboot.app.item.models.Producto;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,15 @@ public interface ProductoClienteRest {
 
     @GetMapping("/ver/{id}")
     public Producto detalle(@PathVariable Long id);
+
+    @PostMapping
+    public Producto save(@RequestBody Producto producto);
+
+    @PutMapping("/{id}")
+    public Producto update(@RequestBody Producto producto, @PathVariable Long id);
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id);
 
 }
 
