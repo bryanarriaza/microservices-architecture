@@ -5,7 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: "/home/bryanarriaza/Downloads/config"
+          uri: https://github.com/bryanarriaza/config-test.git
 server:
   port: 8888
-
