@@ -1,6 +1,6 @@
 package com.barriaza.springboot.app.usuarios.repository;
 
-import com.barriaza.springboot.app.usuarios.models.entity.Usuario;
+import com.barriaza.springboot.app.usuarios.commons.models.entity.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
